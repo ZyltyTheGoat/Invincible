@@ -1,0 +1,15 @@
+{
+  "_fv": 79,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "W",
+    "keyBindingName": "Walk Forwards",
+    "keyBindingCategoryKey": "invincible_craft_movement",
+    "onKeyPressed": {
+      "name": "KeyMovementWalkForwardsOnKeyPressed"
+    },
+    "onKeyReleased": {
+      "name": "KeyMovementWalkForwardsOnKeyReleased"
+    }
+  }
+}

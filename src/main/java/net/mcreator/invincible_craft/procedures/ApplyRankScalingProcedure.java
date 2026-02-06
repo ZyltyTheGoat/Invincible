@@ -44,6 +44,11 @@ public class ApplyRankScalingProcedure {
 					_livingEntity5.getAttribute(Attributes.ARMOR_TOUGHNESS).setBaseValue(1);
 				if (entity instanceof LivingEntity _livingEntity6 && _livingEntity6.getAttributes().hasAttribute(Attributes.KNOCKBACK_RESISTANCE))
 					_livingEntity6.getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(0.3);
+				{
+					InvincibleCraftModVariables.PlayerVariables _vars = entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES);
+					_vars.flightSpeed = 1.5;
+					_vars.markSyncDirty();
+				}
 			}
 			if (entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame >= 10000 && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame < 100000) {
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
@@ -58,6 +63,11 @@ public class ApplyRankScalingProcedure {
 					_livingEntity11.getAttribute(Attributes.ARMOR_TOUGHNESS).setBaseValue(3);
 				if (entity instanceof LivingEntity _livingEntity12 && _livingEntity12.getAttributes().hasAttribute(Attributes.KNOCKBACK_RESISTANCE))
 					_livingEntity12.getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(0.3);
+				{
+					InvincibleCraftModVariables.PlayerVariables _vars = entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES);
+					_vars.flightSpeed = 1.75;
+					_vars.markSyncDirty();
+				}
 			}
 			if (entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame >= 100000 && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame < 500000) {
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
@@ -72,6 +82,11 @@ public class ApplyRankScalingProcedure {
 					_livingEntity17.getAttribute(Attributes.ARMOR_TOUGHNESS).setBaseValue(6);
 				if (entity instanceof LivingEntity _livingEntity18 && _livingEntity18.getAttributes().hasAttribute(Attributes.KNOCKBACK_RESISTANCE))
 					_livingEntity18.getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(0.6);
+				{
+					InvincibleCraftModVariables.PlayerVariables _vars = entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES);
+					_vars.flightSpeed = 1.75;
+					_vars.markSyncDirty();
+				}
 			}
 			if (entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame >= 500000 && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame < 1500000) {
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
@@ -86,6 +101,11 @@ public class ApplyRankScalingProcedure {
 					_livingEntity23.getAttribute(Attributes.ARMOR_TOUGHNESS).setBaseValue(12);
 				if (entity instanceof LivingEntity _livingEntity24 && _livingEntity24.getAttributes().hasAttribute(Attributes.KNOCKBACK_RESISTANCE))
 					_livingEntity24.getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(2.5);
+				{
+					InvincibleCraftModVariables.PlayerVariables _vars = entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES);
+					_vars.flightSpeed = 2;
+					_vars.markSyncDirty();
+				}
 			}
 			if (entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame >= 1500000 && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame < 3000000) {
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
@@ -100,6 +120,11 @@ public class ApplyRankScalingProcedure {
 					_livingEntity29.getAttribute(Attributes.ARMOR_TOUGHNESS).setBaseValue(18);
 				if (entity instanceof LivingEntity _livingEntity30 && _livingEntity30.getAttributes().hasAttribute(Attributes.KNOCKBACK_RESISTANCE))
 					_livingEntity30.getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(2.9);
+				{
+					InvincibleCraftModVariables.PlayerVariables _vars = entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES);
+					_vars.flightSpeed = 2;
+					_vars.markSyncDirty();
+				}
 			}
 			if (entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame >= 3000000 && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame <= 5000000) {
 				if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
@@ -114,6 +139,11 @@ public class ApplyRankScalingProcedure {
 					_livingEntity35.getAttribute(Attributes.ARMOR_TOUGHNESS).setBaseValue(25);
 				if (entity instanceof LivingEntity _livingEntity36 && _livingEntity36.getAttributes().hasAttribute(Attributes.KNOCKBACK_RESISTANCE))
 					_livingEntity36.getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(2.9);
+				{
+					InvincibleCraftModVariables.PlayerVariables _vars = entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES);
+					_vars.flightSpeed = 2.5;
+					_vars.markSyncDirty();
+				}
 			}
 		}
 	}

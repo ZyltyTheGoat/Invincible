@@ -449,18 +449,6 @@
       }
     },
     {
-      "name": "HotbarOffsetHandler",
-      "type": "code",
-      "compiles": true,
-      "locked_code": true,
-      "registry_name": "hotbar_offset_handler",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/invincible_craft/HotbarOffsetHandler.java"
-        ]
-      }
-    },
-    {
       "name": "Combooverlay",
       "type": "overlay",
       "compiles": true,
@@ -676,6 +664,393 @@
         ]
       },
       "path": "~/Abilities/Melee/Follow Up"
+    },
+    {
+      "name": "CommandSetPowerViltrumite",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "command_set_power_viltrumite",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/CommandSetPowerViltrumiteProcedure.java"
+        ]
+      },
+      "path": "~/Commands/Set Power"
+    },
+    {
+      "name": "KeyMovementJump",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_jump",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/network/KeyMovementJumpMessage.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementJumpOnKeyPressed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_jump_on_key_pressed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/KeyMovementJumpOnKeyPressedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementJumpOnKeyReleased",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_jump_on_key_released",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/KeyMovementJumpOnKeyReleasedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementStrafeLeft",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_strafe_left",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/network/KeyMovementStrafeLeftMessage.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementStrafeLeftOnKeyPressed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_strafe_left_on_key_pressed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/KeyMovementStrafeLeftOnKeyPressedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementStrafeLeftOnKeyReleased",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_strafe_left_on_key_released",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/KeyMovementStrafeLeftOnKeyReleasedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementStrafeRight",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_strafe_right",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/network/KeyMovementStrafeRightMessage.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementStrafeRightOnKeyPressed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_strafe_right_on_key_pressed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/KeyMovementStrafeRightOnKeyPressedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementStrafeRightOnKeyReleased",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_strafe_right_on_key_released",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/KeyMovementStrafeRightOnKeyReleasedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementWalkBackwards",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_walk_backwards",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/network/KeyMovementWalkBackwardsMessage.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementWalkBackwardsOnKeyPressed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_walk_backwards_on_key_pressed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/KeyMovementWalkBackwardsOnKeyPressedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementWalkBackwardsOnKeyReleased",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_walk_backwards_on_key_released",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/KeyMovementWalkBackwardsOnKeyReleasedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementWalkForwards",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_walk_forwards",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/network/KeyMovementWalkForwardsMessage.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementWalkForwardsOnKeyPressed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_walk_forwards_on_key_pressed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/KeyMovementWalkForwardsOnKeyPressedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementWalkForwardsOnKeyReleased",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_walk_forwards_on_key_released",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/KeyMovementWalkForwardsOnKeyReleasedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "HotbarOffsetHandler",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hotbar_offset_handler",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/HotbarOffsetHandler.java"
+        ]
+      }
+    },
+    {
+      "name": "FlightModeHandler",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "flight_mode_handler",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/FlightModeHandlerProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "KeyMovementSprint",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_sprint",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/network/KeyMovementSprintMessage.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementSprintOnKeyPressed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_sprint_on_key_pressed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/KeyMovementSprintOnKeyPressedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
+    },
+    {
+      "name": "KeyMovementSprintOnKeyReleased",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "key_movement_sprint_on_key_released",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/KeyMovementSprintOnKeyReleasedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds/Movement Keys"
     }
   ],
   "variable_elements": [
@@ -702,6 +1077,60 @@
       "type": "logic",
       "scope": "player_lifetime",
       "value": "false"
+    },
+    {
+      "name": "flightMode",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    },
+    {
+      "name": "flightJumpCounter",
+      "type": "number",
+      "scope": "player_lifetime",
+      "value": "0"
+    },
+    {
+      "name": "movementStrafeLeft",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    },
+    {
+      "name": "movementStrafeRight",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    },
+    {
+      "name": "movementWalkBackwards",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    },
+    {
+      "name": "movementWalkForwards",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    },
+    {
+      "name": "movementJump",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    },
+    {
+      "name": "flightSpeed",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "movementSprint",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
     }
   ],
   "sound_elements": [
@@ -717,6 +1146,17 @@
       "name": "hit_strong",
       "files": [
         "punch_hit"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "boost",
+      "files": [
+        "boost",
+        "boost2",
+        "boost3",
+        "boost4"
       ],
       "category": "neutral",
       "subtitle": ""
@@ -736,7 +1176,17 @@
       "death.attack.attack": "%1$s died",
       "death.attack.attack.player": "%1$s died whilst trying to escape %2$s",
       "effect.invincible_craft.follow_up": "Follow Up",
-      "key.invincible_craft.follow_up_key": "Follow Up"
+      "key.invincible_craft.follow_up_key": "Follow Up",
+      "key.invincible_craft.key_movement_jump": "Jump",
+      "key.categories.invincible_craft": "Invincible Craft",
+      "key.categories.invincible_craft_movement": "Invincible Craft Movement (Keep same)",
+      "key.invincible_craft.key_movement_strafe_left": "Strafe Left",
+      "key.invincible_craft.key_movement_strafe_right": "Strafe Right",
+      "key.invincible_craft.key_movement_walk_backwards": "Walk Backwards",
+      "key.invincible_craft.key_movement_walk_forwards": "Walk Forwards",
+      "key.invincible_craft.key_movement_sprint": "Sprint",
+      "subtitles.flight_boost": "",
+      "subtitles.boost": ""
     }
   },
   "metadata": {
@@ -746,6 +1196,7 @@
       "src/main/java/net/mcreator/invincible_craft/init/InvincibleCraftModParticleTypes.java",
       "src/main/java/net/mcreator/invincible_craft/init/InvincibleCraftModMobEffects.java",
       "src/main/java/net/mcreator/invincible_craft/init/InvincibleCraftModSounds.java",
+      "src/main/resources/invincible_craft.mixins.json",
       "src/main/java/net/mcreator/invincible_craft/mixin/LevelRendererMixin.java",
       "src/main/java/net/mcreator/invincible_craft/mixin/PlayerAnimationMixin.java",
       "src/main/java/net/mcreator/invincible_craft/mixin/CameraAccessor.java",
@@ -774,6 +1225,10 @@
           {
             "name": "Set Rank",
             "children": []
+          },
+          {
+            "name": "Set Power",
+            "children": []
           }
         ]
       },
@@ -787,7 +1242,12 @@
       },
       {
         "name": "Keybinds",
-        "children": []
+        "children": [
+          {
+            "name": "Movement Keys",
+            "children": []
+          }
+        ]
       },
       {
         "name": "Overlays",
@@ -804,6 +1264,10 @@
                 "children": []
               }
             ]
+          },
+          {
+            "name": "Flight",
+            "children": []
           }
         ]
       }

@@ -1,0 +1,205 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"flight_sprint": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"head": {
+					"position": [0, 0, 0]
+				},
+				"torso": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"right_arm": {
+					"rotation": [-181.5741, 17.43127, -5.24133],
+					"position": [0, 0, 0]
+				},
+				"left_arm": {
+					"rotation": [-181.5741, -17.43127, 5.24133],
+					"position": [0, 0, 0]
+				},
+				"right_leg": {
+					"rotation": [0, 2.5, 0],
+					"position": [0, 0, 0]
+				},
+				"left_leg": {
+					"rotation": [0, -5, 0],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"flight_standing": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0],
+					"scale": 1
+				},
+				"torso": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"right_arm": {
+					"rotation": [-0.74606, -10.52734, 3.25262],
+					"position": [-0.5, 0, 0]
+				},
+				"left_arm": {
+					"rotation": [-0.74606, 10.52734, -3.25262],
+					"position": [0.5, 0, 0]
+				},
+				"right_leg": {
+					"rotation": [17.5, 0, 0],
+					"position": [0, 2.28015, -3.32899]
+				},
+				"left_leg": {
+					"rotation": [10, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"body": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"flight_forward": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [20, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"head": {
+					"rotation": [-20, 0, 0],
+					"position": [0, 0, 0],
+					"scale": 1
+				},
+				"torso": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"right_arm": {
+					"rotation": [9.94447, -8.94248, 13.2712],
+					"position": [-0.5, 0, 0]
+				},
+				"left_arm": {
+					"rotation": [9.94447, 8.94248, -13.2712],
+					"position": [0.5, 0, 0]
+				},
+				"right_leg": {
+					"rotation": [17.5, 0, 0],
+					"position": [0, 2.28015, -3.32899]
+				},
+				"left_leg": {
+					"rotation": [10, 0, 0],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"flight_backwards": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [-20, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"head": {
+					"rotation": [15, 0, 0],
+					"position": [0, 0, 0],
+					"scale": 1
+				},
+				"torso": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"right_arm": {
+					"rotation": [-9.94447, -8.94248, 13.2712],
+					"position": [-1, 0, 0]
+				},
+				"left_arm": {
+					"rotation": [-9.94447, 8.94248, -13.2712],
+					"position": [1, 0, 0]
+				},
+				"right_leg": {
+					"rotation": [17.5, 0, 0],
+					"position": [0, 2.28015, -3.32899]
+				},
+				"left_leg": {
+					"rotation": [10, 0, 0],
+					"position": [0, 0, 0]
+				}
+			}
+		},
+		"flight_right": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [5.23619, -14.0761, -20.6469],
+					"position": [0, 0, 0]
+				},
+				"head": {
+					"rotation": [-4.92442, 0.86717, 9.96271],
+					"position": [0, 0, 0]
+				},
+				"torso": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"right_arm": {
+					"rotation": [13.49828, -7.5082, 18.7266],
+					"position": [-0.29523, -0.25652, 0]
+				},
+				"left_arm": {
+					"rotation": [17.44447, 8.94248, -13.2712],
+					"position": [0.48697, -1.40954, 0]
+				},
+				"right_leg": {
+					"rotation": [9.54589, -2.99318, 17.25002],
+					"position": [0, 0, 0]
+				},
+				"left_leg": {
+					"rotation": [17.43745, -1.50179, 4.76968],
+					"position": [0, 2.28015, -3.32899]
+				}
+			}
+		},
+		"flight_left": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [5.23619, 14.0761, 20.6469],
+					"position": [0, 0, 0]
+				},
+				"head": {
+					"rotation": [-4.92442, -0.86717, -9.96271],
+					"position": [0, 0, 0]
+				},
+				"torso": {
+					"rotation": [0, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"right_arm": {
+					"rotation": [17.44447, -8.94248, 13.2712],
+					"position": [-0.48697, -1.40954, 0]
+				},
+				"left_arm": {
+					"rotation": [13.49828, 7.5082, -18.7266],
+					"position": [0.29523, -0.25652, 0]
+				},
+				"right_leg": {
+					"rotation": [17.43745, 1.50179, -4.76968],
+					"position": [0, 2.28015, -3.32899]
+				},
+				"left_leg": {
+					"rotation": [9.54589, 2.99318, -17.25002],
+					"position": [0, 0, 0]
+				}
+			}
+		}
+	}
+}

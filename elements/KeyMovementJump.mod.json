@@ -1,0 +1,15 @@
+{
+  "_fv": 79,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "SPACE",
+    "keyBindingName": "Jump",
+    "keyBindingCategoryKey": "invincible_craft_movement",
+    "onKeyPressed": {
+      "name": "KeyMovementJumpOnKeyPressed"
+    },
+    "onKeyReleased": {
+      "name": "KeyMovementJumpOnKeyReleased"
+    }
+  }
+}

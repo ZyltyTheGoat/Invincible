@@ -1,0 +1,15 @@
+{
+  "_fv": 79,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "A",
+    "keyBindingName": "Strafe Left",
+    "keyBindingCategoryKey": "invincible_craft_movement",
+    "onKeyPressed": {
+      "name": "KeyMovementStrafeLeftOnKeyPressed"
+    },
+    "onKeyReleased": {
+      "name": "KeyMovementStrafeLeftOnKeyReleased"
+    }
+  }
+}

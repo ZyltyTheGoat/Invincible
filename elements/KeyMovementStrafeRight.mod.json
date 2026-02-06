@@ -1,0 +1,15 @@
+{
+  "_fv": 79,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "D",
+    "keyBindingName": "Strafe Right",
+    "keyBindingCategoryKey": "invincible_craft_movement",
+    "onKeyPressed": {
+      "name": "KeyMovementStrafeRightOnKeyPressed"
+    },
+    "onKeyReleased": {
+      "name": "KeyMovementStrafeRightOnKeyReleased"
+    }
+  }
+}

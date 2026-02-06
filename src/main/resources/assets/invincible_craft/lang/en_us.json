@@ -9,5 +9,15 @@
   "death.attack.attack": "%1$s died",
   "death.attack.attack.player": "%1$s died whilst trying to escape %2$s",
   "effect.invincible_craft.follow_up": "Follow Up",
-  "key.invincible_craft.follow_up_key": "Follow Up"
+  "key.invincible_craft.follow_up_key": "Follow Up",
+  "key.invincible_craft.key_movement_jump": "Jump",
+  "key.categories.invincible_craft": "Invincible Craft",
+  "key.categories.invincible_craft_movement": "Invincible Craft Movement (Keep same)",
+  "key.invincible_craft.key_movement_strafe_left": "Strafe Left",
+  "key.invincible_craft.key_movement_strafe_right": "Strafe Right",
+  "key.invincible_craft.key_movement_walk_backwards": "Walk Backwards",
+  "key.invincible_craft.key_movement_walk_forwards": "Walk Forwards",
+  "key.invincible_craft.key_movement_sprint": "Sprint",
+  "subtitles.flight_boost": "",
+  "subtitles.boost": ""
 }

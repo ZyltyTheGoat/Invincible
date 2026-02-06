@@ -14,5 +14,25 @@
         "stream": false
       }
     ]
+  },
+  "boost": {
+    "sounds": [
+      {
+        "name": "invincible_craft:boost",
+        "stream": false
+      },
+      {
+        "name": "invincible_craft:boost2",
+        "stream": false
+      },
+      {
+        "name": "invincible_craft:boost3",
+        "stream": false
+      },
+      {
+        "name": "invincible_craft:boost4",
+        "stream": false
+      }
+    ]
   }
 }

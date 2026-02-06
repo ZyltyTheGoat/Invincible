@@ -1,0 +1,15 @@
+{
+  "_fv": 79,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "LCONTROL",
+    "keyBindingName": "Sprint",
+    "keyBindingCategoryKey": "invincible_craft_movement",
+    "onKeyPressed": {
+      "name": "KeyMovementSprintOnKeyPressed"
+    },
+    "onKeyReleased": {
+      "name": "KeyMovementSprintOnKeyReleased"
+    }
+  }
+}

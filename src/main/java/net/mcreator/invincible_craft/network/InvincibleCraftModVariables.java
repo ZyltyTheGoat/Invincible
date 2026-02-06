@@ -71,8 +71,17 @@ public class InvincibleCraftModVariables {
 		clone.power = original.power;
 		clone.rank = original.rank;
 		clone.fame = original.fame;
+		clone.flightSpeed = original.flightSpeed;
 		if (!event.isWasDeath()) {
 			clone.battleMode = original.battleMode;
+			clone.flightMode = original.flightMode;
+			clone.flightJumpCounter = original.flightJumpCounter;
+			clone.movementStrafeLeft = original.movementStrafeLeft;
+			clone.movementStrafeRight = original.movementStrafeRight;
+			clone.movementWalkBackwards = original.movementWalkBackwards;
+			clone.movementWalkForwards = original.movementWalkForwards;
+			clone.movementJump = original.movementJump;
+			clone.movementSprint = original.movementSprint;
 		}
 		event.getEntity().setData(PLAYER_VARIABLES, clone);
 	}
@@ -83,6 +92,15 @@ public class InvincibleCraftModVariables {
 		public String rank = "\"\"";
 		public double fame = 0;
 		public boolean battleMode = false;
+		public boolean flightMode = false;
+		public double flightJumpCounter = 0;
+		public boolean movementStrafeLeft = false;
+		public boolean movementStrafeRight = false;
+		public boolean movementWalkBackwards = false;
+		public boolean movementWalkForwards = false;
+		public boolean movementJump = false;
+		public double flightSpeed = 0;
+		public boolean movementSprint = false;
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -91,6 +109,15 @@ public class InvincibleCraftModVariables {
 			nbt.putString("rank", rank);
 			nbt.putDouble("fame", fame);
 			nbt.putBoolean("battleMode", battleMode);
+			nbt.putBoolean("flightMode", flightMode);
+			nbt.putDouble("flightJumpCounter", flightJumpCounter);
+			nbt.putBoolean("movementStrafeLeft", movementStrafeLeft);
+			nbt.putBoolean("movementStrafeRight", movementStrafeRight);
+			nbt.putBoolean("movementWalkBackwards", movementWalkBackwards);
+			nbt.putBoolean("movementWalkForwards", movementWalkForwards);
+			nbt.putBoolean("movementJump", movementJump);
+			nbt.putDouble("flightSpeed", flightSpeed);
+			nbt.putBoolean("movementSprint", movementSprint);
 			return nbt;
 		}
 
@@ -100,6 +127,15 @@ public class InvincibleCraftModVariables {
 			rank = nbt.getString("rank");
 			fame = nbt.getDouble("fame");
 			battleMode = nbt.getBoolean("battleMode");
+			flightMode = nbt.getBoolean("flightMode");
+			flightJumpCounter = nbt.getDouble("flightJumpCounter");
+			movementStrafeLeft = nbt.getBoolean("movementStrafeLeft");
+			movementStrafeRight = nbt.getBoolean("movementStrafeRight");
+			movementWalkBackwards = nbt.getBoolean("movementWalkBackwards");
+			movementWalkForwards = nbt.getBoolean("movementWalkForwards");
+			movementJump = nbt.getBoolean("movementJump");
+			flightSpeed = nbt.getDouble("flightSpeed");
+			movementSprint = nbt.getBoolean("movementSprint");
 		}
 
 		public void markSyncDirty() {

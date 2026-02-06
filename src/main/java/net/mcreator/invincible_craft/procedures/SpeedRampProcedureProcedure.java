@@ -35,7 +35,7 @@ public class SpeedRampProcedureProcedure {
 		double currentSpeedAmplifier = 0;
 		rampUpTicks = 40;
 		rampDownTicks = 0;
-		if (!world.isClientSide()) {
+		if (!world.isClientSide() && !entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).flightMode) {
 			if (entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame >= 1000 && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame < 10000) {
 				maxSpeedAmplifier = 3;
 			}

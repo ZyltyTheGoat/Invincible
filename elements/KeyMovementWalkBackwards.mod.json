@@ -1,0 +1,15 @@
+{
+  "_fv": 79,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "S",
+    "keyBindingName": "Walk Backwards",
+    "keyBindingCategoryKey": "invincible_craft_movement",
+    "onKeyPressed": {
+      "name": "KeyMovementWalkBackwardsOnKeyPressed"
+    },
+    "onKeyReleased": {
+      "name": "KeyMovementWalkBackwardsOnKeyReleased"
+    }
+  }
+}

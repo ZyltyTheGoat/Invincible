@@ -1,0 +1,36 @@
+{
+  "_fv": 79,
+  "_type": "overlay",
+  "definition": {
+    "priority": "HIGH",
+    "components": [
+      {
+        "type": "sprite",
+        "data": {
+          "sprite": "combo_bar_spritesheet.png",
+          "spritesCount": 7,
+          "spriteIndex": {
+            "fixedValue": 0.0,
+            "name": "ReturnComboCount"
+          },
+          "anchorPoint": "BOTTOM_CENTER",
+          "x": 122,
+          "y": 204,
+          "locked": false
+        }
+      }
+    ],
+    "baseTexture": "",
+    "overlayTarget": "Ingame",
+    "displayCondition": {
+      "name": "ReturnCombatModeActive"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

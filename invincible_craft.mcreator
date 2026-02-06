@@ -1,0 +1,829 @@
+{
+  "mod_elements": [
+    {
+      "name": "ApplyRankScaling",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "apply_rank_scaling",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/ApplyRankScalingProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "InvincibleCommand",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "invincible_command",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/command/InvincibleCommandCommand.java"
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "AttackPunch",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "attack_punch",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/AttackPunchProcedure.java"
+        ]
+      },
+      "path": "~/Abilities/Melee"
+    },
+    {
+      "name": "Shockwave",
+      "type": "particle",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shockwave",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/invincible_craft/particles/shockwave.json",
+          "src/main/java/net/mcreator/invincible_craft/client/particle/ShockwaveParticle.java"
+        ]
+      },
+      "path": "~/Particles"
+    },
+    {
+      "name": "Impact",
+      "type": "particle",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "impact",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/client/particle/ImpactParticle.java",
+          "src/main/resources/assets/invincible_craft/particles/impact.json"
+        ]
+      },
+      "path": "~/Particles"
+    },
+    {
+      "name": "CommandFameSet",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "command_fame_set",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/CommandFameSetProcedure.java"
+        ]
+      },
+      "path": "~/Commands/Set Rank"
+    },
+    {
+      "name": "CommandFameAdd",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "command_fame_add",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/CommandFameAddProcedure.java"
+        ]
+      },
+      "path": "~/Commands/Set Rank"
+    },
+    {
+      "name": "CommandFameRemove",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "command_fame_remove",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/CommandFameRemoveProcedure.java"
+        ]
+      },
+      "path": "~/Commands/Set Rank"
+    },
+    {
+      "name": "SpeedRampProcedure",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "speed_ramp_procedure",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/SpeedRampProcedureProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "Stun",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "stun",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/potion/StunMobEffect.java"
+        ]
+      },
+      "path": "~/Potion Effects"
+    },
+    {
+      "name": "CombatCooldown",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combat_cooldown",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/potion/CombatCooldownMobEffect.java"
+        ]
+      },
+      "path": "~/Potion Effects"
+    },
+    {
+      "name": "WhenEntitySwingsHand",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "when_entity_swings_hand",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/WhenEntitySwingsHandProcedure.java"
+        ]
+      },
+      "path": "~/Abilities/Melee"
+    },
+    {
+      "name": "WhenEntityHitsBlock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "when_entity_hits_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/WhenEntityHitsBlockProcedure.java"
+        ]
+      },
+      "path": "~/Abilities/Melee"
+    },
+    {
+      "name": "WhenEntityIsHurt",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "when_entity_is_hurt",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "damagesource",
+            "type": "damagesource"
+          },
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/WhenEntityIsHurtProcedure.java"
+        ]
+      },
+      "path": "~/Abilities/Melee"
+    },
+    {
+      "name": "BattleModeOnKeyPressed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "battle_mode_on_key_pressed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/BattleModeOnKeyPressedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds"
+    },
+    {
+      "name": "BattleMode",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "battle_mode",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/network/BattleModeMessage.java"
+        ]
+      },
+      "path": "~/Keybinds"
+    },
+    {
+      "name": "Combo",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combo",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/potion/ComboMobEffect.java"
+        ]
+      },
+      "path": "~/Potion Effects"
+    },
+    {
+      "name": "DisableNormalHostilesSpawning",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "disable_normal_hostiles_spawning",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/DisableNormalHostilesSpawningProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "Attack",
+      "type": "damagetype",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "attack",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/invincible_craft/damage_type/attack.json"
+        ]
+      }
+    },
+    {
+      "name": "Knockback",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "knockback",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "sourceEntity",
+            "type": "entity"
+          },
+          {
+            "name": "ignoreKnockbackResistance",
+            "type": "logic"
+          },
+          {
+            "name": "knockbackX",
+            "type": "number"
+          },
+          {
+            "name": "knockbackY",
+            "type": "number"
+          },
+          {
+            "name": "knockbackZ",
+            "type": "number"
+          },
+          {
+            "name": "power",
+            "type": "number"
+          },
+          {
+            "name": "range",
+            "type": "number"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "type",
+            "type": "string"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/KnockbackProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "HotbarOffsetHandler",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "hotbar_offset_handler",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/HotbarOffsetHandler.java"
+        ]
+      }
+    },
+    {
+      "name": "Combooverlay",
+      "type": "overlay",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "combooverlay",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/client/screens/CombooverlayOverlay.java"
+        ]
+      },
+      "path": "~/Overlays"
+    },
+    {
+      "name": "ReturnComboCount",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_combo_count",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/ReturnComboCountProcedure.java"
+        ]
+      },
+      "path": "~/Overlays"
+    },
+    {
+      "name": "ReturnCombatModeActive",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "return_combat_mode_active",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/ReturnCombatModeActiveProcedure.java"
+        ]
+      },
+      "path": "~/Overlays"
+    },
+    {
+      "name": "FollowUp",
+      "type": "potioneffect",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "follow_up",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/potion/FollowUpMobEffect.java"
+        ]
+      },
+      "path": "~/Potion Effects"
+    },
+    {
+      "name": "FollowUpKey",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "follow_up_key",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/network/FollowUpKeyMessage.java"
+        ]
+      },
+      "path": "~/Keybinds"
+    },
+    {
+      "name": "FollowUpQTERenderer",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "follow_up_qte_renderer",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/FollowUpQTERenderer.java"
+        ]
+      },
+      "path": "~/Abilities/Melee/Follow Up"
+    },
+    {
+      "name": "FollowUpQTEState",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "follow_up_qte_state",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/FollowUpQTEState.java"
+        ]
+      },
+      "path": "~/Abilities/Melee/Follow Up"
+    },
+    {
+      "name": "FollowUpQTETick",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "follow_up_qte_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/FollowUpQTETick.java"
+        ]
+      },
+      "path": "~/Abilities/Melee/Follow Up"
+    },
+    {
+      "name": "FollowUpQTEMaster",
+      "type": "code",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "follow_up_qte_master",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/FollowUpQTEMaster.java"
+        ]
+      },
+      "path": "~/Abilities/Melee/Follow Up"
+    },
+    {
+      "name": "FollowUpKeyOnKeyPressed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "follow_up_key_on_key_pressed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/FollowUpKeyOnKeyPressedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds"
+    },
+    {
+      "name": "FollowUpKeyOnKeyReleased",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "follow_up_key_on_key_released",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/FollowUpKeyOnKeyReleasedProcedure.java"
+        ]
+      },
+      "path": "~/Keybinds"
+    },
+    {
+      "name": "AttackFollowUp",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "attack_follow_up",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/procedures/AttackFollowUpProcedure.java"
+        ]
+      },
+      "path": "~/Abilities/Melee/Follow Up"
+    },
+    {
+      "name": "FollowUpPacket",
+      "type": "packet",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "follow_up_packet",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/invincible_craft/network/FollowUpPacketMessage.java"
+        ]
+      },
+      "path": "~/Abilities/Melee/Follow Up"
+    }
+  ],
+  "variable_elements": [
+    {
+      "name": "power",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
+      "name": "rank",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
+      "name": "fame",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "battleMode",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    }
+  ],
+  "sound_elements": [
+    {
+      "name": "woosh",
+      "files": [
+        "punch_short_whoosh"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "hit_strong",
+      "files": [
+        "punch_hit"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    }
+  ],
+  "tag_elements": {},
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "effect.invincible_craft.stun": "Stun",
+      "effect.invincible_craft.combat_cooldown": "Combat Cooldown",
+      "key.invincible_craft.battle_mode": "Battle Mode",
+      "effect.invincible_craft.combo": "Combo",
+      "subtitles.woosh": "",
+      "subtitles.hit_strong": "",
+      "death.attack.attack.item": "%1$s was killed by %2$s using %3$s",
+      "death.attack.attack": "%1$s died",
+      "death.attack.attack.player": "%1$s died whilst trying to escape %2$s",
+      "effect.invincible_craft.follow_up": "Follow Up",
+      "key.invincible_craft.follow_up_key": "Follow Up"
+    }
+  },
+  "metadata": {
+    "files": [
+      "src/main/java/net/mcreator/invincible_craft/init/InvincibleCraftModKeyMappings.java",
+      "src/main/java/net/mcreator/invincible_craft/init/InvincibleCraftModParticles.java",
+      "src/main/java/net/mcreator/invincible_craft/init/InvincibleCraftModParticleTypes.java",
+      "src/main/java/net/mcreator/invincible_craft/init/InvincibleCraftModMobEffects.java",
+      "src/main/java/net/mcreator/invincible_craft/init/InvincibleCraftModSounds.java",
+      "src/main/java/net/mcreator/invincible_craft/mixin/LevelRendererMixin.java",
+      "src/main/java/net/mcreator/invincible_craft/mixin/PlayerAnimationMixin.java",
+      "src/main/java/net/mcreator/invincible_craft/mixin/CameraAccessor.java",
+      "src/main/java/net/mcreator/invincible_craft/InvincibleCraftMod.java",
+      "src/main/java/net/mcreator/invincible_craft/mixin/ItemInHandLayerMixin.java",
+      "src/main/java/net/mcreator/invincible_craft/client/RenderUtils.java",
+      "src/main/java/net/mcreator/invincible_craft/network/InvincibleCraftModVariables.java",
+      "src/main/java/net/mcreator/invincible_craft/network/PlayPlayerAnimationMessage.java",
+      "src/main/resources/META-INF/accesstransformer.cfg",
+      "src/main/java/net/mcreator/invincible_craft/mixin/LivingEntityRendererMixin.java",
+      "src/main/java/net/mcreator/invincible_craft/InvincibleCraftModPlayerAnimationAPI.java",
+      "src/main/java/net/mcreator/invincible_craft/mixin/ItemInHandRendererMixin.java",
+      "src/main/resources/META-INF/neoforge.mods.toml",
+      "src/main/resources/pack.mcmeta",
+      "src/main/java/net/mcreator/invincible_craft/mixin/EntityRenderDispatcherMixin.java",
+      "src/main/java/net/mcreator/invincible_craft/mixin/PlayerAnimationRendererMixin.java",
+      "src/main/resources/assets/invincible_craft/sounds.json"
+    ]
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Commands",
+        "children": [
+          {
+            "name": "Set Rank",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Particles",
+        "children": []
+      },
+      {
+        "name": "Potion Effects",
+        "children": []
+      },
+      {
+        "name": "Keybinds",
+        "children": []
+      },
+      {
+        "name": "Overlays",
+        "children": []
+      },
+      {
+        "name": "Abilities",
+        "children": [
+          {
+            "name": "Melee",
+            "children": [
+              {
+                "name": "Follow Up",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "invincible_craft",
+    "modName": "Invincible Craft",
+    "version": "1.0.0",
+    "author": "MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Not specified",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "neoforge-1.21.1",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "net.mcreator.invincible_craft"
+  },
+  "mcreatorVersion": 202500345720
+}

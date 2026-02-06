@@ -1,0 +1,18 @@
+{
+  "woosh": {
+    "sounds": [
+      {
+        "name": "invincible_craft:punch_short_whoosh",
+        "stream": false
+      }
+    ]
+  },
+  "hit_strong": {
+    "sounds": [
+      {
+        "name": "invincible_craft:punch_hit",
+        "stream": false
+      }
+    ]
+  }
+}

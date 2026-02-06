@@ -1,0 +1,13 @@
+{
+  "effect.invincible_craft.stun": "Stun",
+  "effect.invincible_craft.combat_cooldown": "Combat Cooldown",
+  "key.invincible_craft.battle_mode": "Battle Mode",
+  "effect.invincible_craft.combo": "Combo",
+  "subtitles.woosh": "",
+  "subtitles.hit_strong": "",
+  "death.attack.attack.item": "%1$s was killed by %2$s using %3$s",
+  "death.attack.attack": "%1$s died",
+  "death.attack.attack.player": "%1$s died whilst trying to escape %2$s",
+  "effect.invincible_craft.follow_up": "Follow Up",
+  "key.invincible_craft.follow_up_key": "Follow Up"
+}

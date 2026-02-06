@@ -1,0 +1,9 @@
+{
+  "_fv": 79,
+  "_type": "packet",
+  "definition": {
+    "serverBound": {
+      "name": "AttackFollowUp"
+    }
+  }
+}

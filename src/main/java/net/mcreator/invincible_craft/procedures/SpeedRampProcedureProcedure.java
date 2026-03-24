@@ -37,22 +37,22 @@ public class SpeedRampProcedureProcedure {
 		rampDownTicks = 0;
 		if (!world.isClientSide() && !entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).flightMode) {
 			if (entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame >= 1000 && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame < 10000) {
-				maxSpeedAmplifier = 3;
+				maxSpeedAmplifier = 2;
 			}
 			if (entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame >= 10000 && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame < 100000) {
-				maxSpeedAmplifier = 6;
+				maxSpeedAmplifier = 4;
 			}
 			if (entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame >= 100000 && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame < 500000) {
-				maxSpeedAmplifier = 9;
+				maxSpeedAmplifier = 6;
 			}
 			if (entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame >= 500000 && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame < 1500000) {
-				maxSpeedAmplifier = 11;
+				maxSpeedAmplifier = 8;
 			}
 			if (entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame >= 1500000 && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame < 3000000) {
-				maxSpeedAmplifier = 13;
+				maxSpeedAmplifier = 10;
 			}
 			if (entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame >= 3000000 && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).fame <= 5000000) {
-				maxSpeedAmplifier = 15;
+				maxSpeedAmplifier = 11;
 			}
 			if (entity.isSprinting()) {
 				if (entity.getPersistentData().getDouble("currentSpeedRampTicks ") < rampUpTicks) {

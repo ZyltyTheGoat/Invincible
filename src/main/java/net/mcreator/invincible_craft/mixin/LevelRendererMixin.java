@@ -11,6 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.gui.screens.ChatScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Camera;
@@ -33,7 +34,7 @@ public abstract class LevelRendererMixin {
 		if (!master.equals("invincible_craft")) {
 			return;
 		}
-		if (camera.getEntity() instanceof Player player && player.getPersistentData().getBoolean("FirstPersonAnimation") && mc.player == player && mc.screen == null) {
+		if (camera.getEntity() instanceof Player player && player.getPersistentData().getBoolean("FirstPersonAnimation") && mc.player == player && (mc.screen == null || mc.screen instanceof ChatScreen)) {
 			((CameraAccessor) camera).setDetached(true);
 		}
 	}

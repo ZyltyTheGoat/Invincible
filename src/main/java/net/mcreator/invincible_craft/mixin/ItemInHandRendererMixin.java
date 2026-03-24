@@ -14,6 +14,7 @@ import net.minecraft.client.renderer.ItemInHandRenderer;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.model.PlayerModel;
+import net.minecraft.client.gui.screens.ChatScreen;
 import net.minecraft.client.Minecraft;
 
 import net.mcreator.invincible_craft.InvincibleCraftModPlayerAnimationAPI;
@@ -36,7 +37,7 @@ public abstract class ItemInHandRendererMixin {
 		}
 		if (!master.equals("invincible_craft"))
 			return;
-		if (localPlayer instanceof Player player && mc.player == player && mc.screen == null) {
+		if (localPlayer instanceof Player player && mc.player == player && (mc.screen == null || mc.screen instanceof ChatScreen)) {
 			if (dispatcher == null)
 				dispatcher = mc.getEntityRenderDispatcher();
 			CompoundTag playerData = player.getPersistentData();

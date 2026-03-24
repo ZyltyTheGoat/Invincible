@@ -971,7 +971,7 @@
       "name": "FlightModeHandler",
       "type": "procedure",
       "compiles": true,
-      "locked_code": true,
+      "locked_code": false,
       "registry_name": "flight_mode_handler",
       "metadata": {
         "dependencies": [

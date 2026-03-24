@@ -17,7 +17,6 @@ import net.mcreator.invincible_craft.network.InvincibleCraftModVariables;
 
 import javax.annotation.Nullable;
 
-/* imports omitted */
 @EventBusSubscriber
 public class FlightModeHandlerProcedure {
 	@SubscribeEvent
@@ -43,7 +42,6 @@ public class FlightModeHandlerProcedure {
 		boolean useLeft = false;
 		boolean useRight = false;
 		boolean useSprint = false;
-		String targetAnimation = "";
 		if (entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).flightMode) {
 			if (entity.onGround()) {
 				{
@@ -56,8 +54,6 @@ public class FlightModeHandlerProcedure {
 					player.stopFallFlying();
 				}
 				entity.getPersistentData().putDouble("currentSpeedRampTicks ", 0);
-				entity.getPersistentData().remove("lastFlightAnimation");
-				entity.getPersistentData().putLong("animationChangeTime", 0);
 				if (entity instanceof Player) {
 					if (entity.level().isClientSide()) {
 						CompoundTag data = entity.getPersistentData();
@@ -88,21 +84,6 @@ public class FlightModeHandlerProcedure {
 					forward = entity.getLookAngle();
 					right = (new Vec3((forward.z() * (-1)), 0, (forward.x()))).normalize();
 					movement = Vec3.ZERO;
-					// Determine target animation with debouncing
-					if (useSprint) {
-						targetAnimation = "invincible_craft:flight_sprint";
-					} else if (useForward && !useBackwards && !useLeft && !useRight) {
-						targetAnimation = "invincible_craft:flight_forward";
-					} else if (useBackwards && !useForward && !useLeft && !useRight) {
-						targetAnimation = "invincible_craft:flight_backwards";
-					} else if (useRight && !useLeft && !useForward && !useBackwards) {
-						targetAnimation = "invincible_craft:flight_right";
-					} else if (useLeft && !useRight && !useForward && !useBackwards) {
-						targetAnimation = "invincible_craft:flight_left";
-					} else {
-						// Mixed movement (diagonal, etc.)
-						targetAnimation = "invincible_craft:flight_standing";
-					}
 					if (useForward) {
 						movement = movement.add(forward);
 					}
@@ -115,63 +96,50 @@ public class FlightModeHandlerProcedure {
 					if (useLeft) {
 						movement = movement.subtract(right);
 					}
+					if (entity instanceof Player) {
+						if (entity.level().isClientSide()) {
+							CompoundTag data = entity.getPersistentData();
+							data.putString("PlayerCurrentAnimation", "invincible_craft:deltaTest");
+							data.putBoolean("OverrideCurrentAnimation", true);
+							data.putBoolean("FirstPersonAnimation", false);
+						} else {
+							PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new PlayPlayerAnimationMessage(entity.getId(), "invincible_craft:deltaTest", true, false));
+						}
+					}
 					if (movement.length() > 0) {
 						movement = (movement.normalize()).scale(currentSpeed);
 						entity.setDeltaMovement(new Vec3((movement.x()), (movement.y()), (movement.z())));
 						if (useSprint) {
+							if (entity instanceof Player) {
+								if (entity.level().isClientSide()) {
+									CompoundTag data = entity.getPersistentData();
+									data.putString("PlayerCurrentAnimation", "invincible_craft:flight_sprint");
+									data.putBoolean("OverrideCurrentAnimation", true);
+									data.putBoolean("FirstPersonAnimation", false);
+								} else {
+									PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new PlayPlayerAnimationMessage(entity.getId(), "invincible_craft:flight_sprint", true, false));
+								}
+							}
 							if (entity instanceof Player player && !player.isFallFlying()) {
 								player.startFallFlying();
 							}
 						}
 					}
 				} else {
-					targetAnimation = "invincible_craft:flight_standing";
+					if (entity instanceof Player) {
+						if (entity.level().isClientSide()) {
+							CompoundTag data = entity.getPersistentData();
+							data.putString("PlayerCurrentAnimation", "invincible_craft:deltaTest");
+							data.putBoolean("OverrideCurrentAnimation", true);
+							data.putBoolean("FirstPersonAnimation", false);
+						} else {
+							PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new PlayPlayerAnimationMessage(entity.getId(), "invincible_craft:deltaTest", true, false));
+						}
+					}
 					entity.getPersistentData().putDouble("currentSpeedRampTicks ", 0);
 					entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x() * 0.6), 0, (entity.getDeltaMovement().z() * 0.6)));
 					if (entity instanceof Player player) {
 						player.stopFallFlying();
-					}
-				}
-				// Animation debouncing - only change animation if it's been different for 3+ ticks
-				String lastAnimation = entity.getPersistentData().getString("lastFlightAnimation");
-				long currentTime = entity.level().getGameTime();
-				if (!targetAnimation.equals(lastAnimation)) {
-					// Animation wants to change
-					long changeStartTime = entity.getPersistentData().getLong("animationChangeTime");
-					if (changeStartTime == 0) {
-						// First tick of wanting to change
-						entity.getPersistentData().putLong("animationChangeTime", currentTime);
-					} else if (currentTime - changeStartTime >= 3) {
-						// Has wanted to change for 3+ ticks, actually change it
-						entity.getPersistentData().putString("lastFlightAnimation", targetAnimation);
-						entity.getPersistentData().putLong("animationChangeTime", 0);
-						if (entity instanceof Player) {
-							if (entity.level().isClientSide()) {
-								CompoundTag data = entity.getPersistentData();
-								data.putString("PlayerCurrentAnimation", targetAnimation);
-								data.putBoolean("OverrideCurrentAnimation", true);
-								data.putBoolean("FirstPersonAnimation", false);
-							} else {
-								PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new PlayPlayerAnimationMessage(entity.getId(), targetAnimation, true, false));
-							}
-						}
-					}
-				} else {
-					// Animation is stable, reset change timer
-					entity.getPersistentData().putLong("animationChangeTime", 0);
-				}
-				// Initialize animation on first tick
-				if (lastAnimation.isEmpty()) {
-					entity.getPersistentData().putString("lastFlightAnimation", targetAnimation);
-					if (entity instanceof Player) {
-						if (entity.level().isClientSide()) {
-							CompoundTag data = entity.getPersistentData();
-							data.putString("PlayerCurrentAnimation", targetAnimation);
-							data.putBoolean("OverrideCurrentAnimation", true);
-							data.putBoolean("FirstPersonAnimation", false);
-						} else {
-							PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new PlayPlayerAnimationMessage(entity.getId(), targetAnimation, true, false));
-						}
 					}
 				}
 			}

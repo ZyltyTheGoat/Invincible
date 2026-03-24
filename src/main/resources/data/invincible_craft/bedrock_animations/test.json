@@ -1,0 +1,16 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"deltaTest": {
+			"loop": true,
+			"bones": {
+				"right_arm": {
+					"rotation": [0, 0, "math.clamp(query.position_delta_y * -90, -10, 160)"]
+				},
+				"left_arm": {
+					"rotation": [0, 0, "math.clamp(query.position_delta_y*90,-160,10)"]
+				}
+			}
+		}
+	}
+}

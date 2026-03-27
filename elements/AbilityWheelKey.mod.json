@@ -1,0 +1,9 @@
+{
+  "_fv": 79,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "C",
+    "keyBindingName": "Ability Wheel",
+    "keyBindingCategoryKey": "invincible_craft"
+  }
+}

@@ -82,6 +82,7 @@ public class InvincibleCraftModVariables {
 			clone.movementWalkForwards = original.movementWalkForwards;
 			clone.movementJump = original.movementJump;
 			clone.movementSprint = original.movementSprint;
+			clone.flightRoll = original.flightRoll;
 		}
 		event.getEntity().setData(PLAYER_VARIABLES, clone);
 	}
@@ -101,6 +102,7 @@ public class InvincibleCraftModVariables {
 		public boolean movementJump = false;
 		public double flightSpeed = 0;
 		public boolean movementSprint = false;
+		public double flightRoll = 0;
 
 		@Override
 		public CompoundTag serializeNBT(HolderLookup.Provider lookupProvider) {
@@ -118,6 +120,7 @@ public class InvincibleCraftModVariables {
 			nbt.putBoolean("movementJump", movementJump);
 			nbt.putDouble("flightSpeed", flightSpeed);
 			nbt.putBoolean("movementSprint", movementSprint);
+			nbt.putDouble("flightRoll", flightRoll);
 			return nbt;
 		}
 
@@ -136,6 +139,7 @@ public class InvincibleCraftModVariables {
 			movementJump = nbt.getBoolean("movementJump");
 			flightSpeed = nbt.getDouble("flightSpeed");
 			movementSprint = nbt.getBoolean("movementSprint");
+			flightRoll = nbt.getDouble("flightRoll");
 		}
 
 		public void markSyncDirty() {

@@ -158,6 +158,7 @@ public class InvincibleCraftModKeyMappings {
 			isDownOld = isDown;
 		}
 	};
+	public static final KeyMapping ABILITY_WHEEL_KEY = new KeyMapping("key.invincible_craft.ability_wheel_key", GLFW.GLFW_KEY_C, "key.categories.invincible_craft");
 	private static long FOLLOW_UP_KEY_LASTPRESS = 0;
 	private static long KEY_MOVEMENT_JUMP_LASTPRESS = 0;
 	private static long KEY_MOVEMENT_STRAFE_LEFT_LASTPRESS = 0;
@@ -176,6 +177,7 @@ public class InvincibleCraftModKeyMappings {
 		event.register(KEY_MOVEMENT_WALK_BACKWARDS);
 		event.register(KEY_MOVEMENT_WALK_FORWARDS);
 		event.register(KEY_MOVEMENT_SPRINT);
+		event.register(ABILITY_WHEEL_KEY);
 	}
 
 	@EventBusSubscriber(Dist.CLIENT)

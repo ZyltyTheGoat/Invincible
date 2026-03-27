@@ -4,7 +4,6 @@ import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.bus.api.Event;
 
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.entity.player.Player;
@@ -15,133 +14,112 @@ import net.minecraft.nbt.CompoundTag;
 import net.mcreator.invincible_craft.network.PlayPlayerAnimationMessage;
 import net.mcreator.invincible_craft.network.InvincibleCraftModVariables;
 
-import javax.annotation.Nullable;
-
 @EventBusSubscriber
 public class FlightModeHandlerProcedure {
 	@SubscribeEvent
 	public static void onPlayerTick(PlayerTickEvent.Post event) {
-		execute(event, event.getEntity());
-	}
-
-	public static void execute(Entity entity) {
-		execute(null, entity);
-	}
-
-	private static void execute(@Nullable Event event, Entity entity) {
+		Entity entity = event.getEntity();
 		if (entity == null)
 			return;
-		double trueRampUpValue = 0;
-		double currentSpeed = 0;
-		Vec3 forward = Vec3.ZERO;
-		Vec3 right = Vec3.ZERO;
-		Vec3 movement = Vec3.ZERO;
-		boolean isMoving = false;
-		boolean useForward = false;
-		boolean useBackwards = false;
-		boolean useLeft = false;
-		boolean useRight = false;
-		boolean useSprint = false;
-		if (entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).flightMode) {
-			if (entity.onGround()) {
-				{
-					InvincibleCraftModVariables.PlayerVariables _vars = entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES);
-					_vars.flightMode = false;
-					_vars.markSyncDirty();
-				}
-				entity.setNoGravity(false);
-				if (entity instanceof Player player) {
-					player.stopFallFlying();
-				}
-				entity.getPersistentData().putDouble("currentSpeedRampTicks ", 0);
-				if (entity instanceof Player) {
-					if (entity.level().isClientSide()) {
-						CompoundTag data = entity.getPersistentData();
-						data.remove("PlayerCurrentAnimation");
-						data.remove("PlayerAnimationProgress");
-						data.putBoolean("ResetPlayerAnimation", true);
-						data.putBoolean("FirstPersonAnimation", false);
-					} else {
-						PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new PlayPlayerAnimationMessage(entity.getId(), "", false, false));
-					}
-				}
+		InvincibleCraftModVariables.PlayerVariables playerVars = entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES);
+		// 1. EXIT FLIGHT IF ON GROUND
+		if (playerVars.flightMode && entity.onGround()) {
+			exitFlight(entity, playerVars);
+			return;
+		}
+		// 2. MAIN FLIGHT LOGIC
+		if (playerVars.flightMode) {
+			handleFlightLogic(entity, playerVars);
+		}
+	}
+
+	private static void handleFlightLogic(Entity entity, InvincibleCraftModVariables.PlayerVariables playerVars) {
+		entity.setNoGravity(true);
+		entity.fallDistance = 0;
+		// Input States
+		boolean isMoving = playerVars.movementStrafeLeft || playerVars.movementStrafeRight || playerVars.movementWalkBackwards || playerVars.movementWalkForwards;
+		boolean isSprinting = playerVars.movementSprint;
+		CompoundTag persistentData = entity.getPersistentData();
+		// FIX: Declare and initialize rampTicks from NBT
+		double rampTicks = persistentData.getDouble("currentSpeedRampTicks");
+		if (isMoving) {
+			// ACCELERATION RAMP
+			if (rampTicks < 20)
+				rampTicks++;
+			persistentData.putDouble("currentSpeedRampTicks", rampTicks);
+			double speedMult = (isSprinting ? playerVars.flightSpeed : 0.6) * Math.min(rampTicks / 20.0, 1.0);
+			// DIRECTIONAL VECTORS
+			Vec3 look = entity.getLookAngle();
+			Vec3 right = new Vec3(-look.z, 0, look.x).normalize();
+			Vec3 targetMove = Vec3.ZERO;
+			if (playerVars.movementWalkForwards)
+				targetMove = targetMove.add(look);
+			if (playerVars.movementWalkBackwards)
+				targetMove = targetMove.subtract(look);
+			if (playerVars.movementStrafeRight)
+				targetMove = targetMove.add(right);
+			if (playerVars.movementStrafeLeft)
+				targetMove = targetMove.subtract(right);
+			if (targetMove.lengthSqr() > 0) {
+				targetMove = targetMove.normalize().scale(speedMult);
+				// LERP VELOCITY: Smooth direction changes
+				Vec3 currentVel = entity.getDeltaMovement();
+				entity.setDeltaMovement(currentVel.add(targetMove.subtract(currentVel).scale(0.2)));
+			}
+			handleAnimations(entity, isSprinting);
+		} else {
+			// --- SMOOTH STOPPING (DRIFT) ---
+			if (rampTicks > 0) {
+				rampTicks--;
+				persistentData.putDouble("currentSpeedRampTicks", rampTicks);
+			}
+			Vec3 drift = entity.getDeltaMovement().scale(0.92);
+			entity.setDeltaMovement(drift.lengthSqr() < 0.001 ? Vec3.ZERO : drift);
+			resetAnimations(entity);
+			if (entity instanceof Player player)
+				player.stopFallFlying();
+		}
+		playerVars.markSyncDirty();
+	}
+
+	private static void exitFlight(Entity entity, InvincibleCraftModVariables.PlayerVariables playerVars) {
+		playerVars.flightMode = false;
+		playerVars.flightRoll = 0; // Reset roll just in case
+		playerVars.markSyncDirty();
+		entity.setNoGravity(false);
+		entity.getPersistentData().putDouble("currentSpeedRampTicks", 0);
+		if (entity instanceof Player player)
+			player.stopFallFlying();
+		resetAnimations(entity);
+	}
+
+	private static void handleAnimations(Entity entity, boolean isSprinting) {
+		if (!(entity instanceof Player player))
+			return;
+		if (isSprinting) {
+			if (entity.level().isClientSide()) {
+				CompoundTag data = entity.getPersistentData();
+				data.putString("PlayerCurrentAnimation", "invincible_craft:flight_sprint");
+				data.putBoolean("OverrideCurrentAnimation", true);
 			} else {
-				isMoving = entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).movementStrafeLeft || entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).movementStrafeRight
-						|| entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).movementWalkBackwards || entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).movementWalkForwards;
-				useSprint = entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).movementSprint;
-				useForward = entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).movementWalkForwards;
-				useBackwards = !useSprint && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).movementWalkBackwards;
-				useLeft = !useSprint && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).movementStrafeLeft;
-				useRight = !useSprint && entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).movementStrafeRight;
-				entity.setNoGravity(true);
-				entity.fallDistance = 0;
-				if (isMoving) {
-					if (entity.getPersistentData().getDouble("currentSpeedRampTicks ") < 15) {
-						entity.getPersistentData().putDouble("currentSpeedRampTicks ", (entity.getPersistentData().getDouble("currentSpeedRampTicks ") + 1));
-					}
-					trueRampUpValue = Math.min(entity.getPersistentData().getDouble("currentSpeedRampTicks ") / 15, 1);
-					currentSpeed = (useSprint ? entity.getData(InvincibleCraftModVariables.PLAYER_VARIABLES).flightSpeed : 0.5) * trueRampUpValue;
-					forward = entity.getLookAngle();
-					right = (new Vec3((forward.z() * (-1)), 0, (forward.x()))).normalize();
-					movement = Vec3.ZERO;
-					if (useForward) {
-						movement = movement.add(forward);
-					}
-					if (useBackwards) {
-						movement = movement.subtract(forward);
-					}
-					if (useRight) {
-						movement = movement.add(right);
-					}
-					if (useLeft) {
-						movement = movement.subtract(right);
-					}
-					if (entity instanceof Player) {
-						if (entity.level().isClientSide()) {
-							CompoundTag data = entity.getPersistentData();
-							data.putString("PlayerCurrentAnimation", "invincible_craft:deltaTest");
-							data.putBoolean("OverrideCurrentAnimation", true);
-							data.putBoolean("FirstPersonAnimation", false);
-						} else {
-							PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new PlayPlayerAnimationMessage(entity.getId(), "invincible_craft:deltaTest", true, false));
-						}
-					}
-					if (movement.length() > 0) {
-						movement = (movement.normalize()).scale(currentSpeed);
-						entity.setDeltaMovement(new Vec3((movement.x()), (movement.y()), (movement.z())));
-						if (useSprint) {
-							if (entity instanceof Player) {
-								if (entity.level().isClientSide()) {
-									CompoundTag data = entity.getPersistentData();
-									data.putString("PlayerCurrentAnimation", "invincible_craft:flight_sprint");
-									data.putBoolean("OverrideCurrentAnimation", true);
-									data.putBoolean("FirstPersonAnimation", false);
-								} else {
-									PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new PlayPlayerAnimationMessage(entity.getId(), "invincible_craft:flight_sprint", true, false));
-								}
-							}
-							if (entity instanceof Player player && !player.isFallFlying()) {
-								player.startFallFlying();
-							}
-						}
-					}
-				} else {
-					if (entity instanceof Player) {
-						if (entity.level().isClientSide()) {
-							CompoundTag data = entity.getPersistentData();
-							data.putString("PlayerCurrentAnimation", "invincible_craft:deltaTest");
-							data.putBoolean("OverrideCurrentAnimation", true);
-							data.putBoolean("FirstPersonAnimation", false);
-						} else {
-							PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new PlayPlayerAnimationMessage(entity.getId(), "invincible_craft:deltaTest", true, false));
-						}
-					}
-					entity.getPersistentData().putDouble("currentSpeedRampTicks ", 0);
-					entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x() * 0.6), 0, (entity.getDeltaMovement().z() * 0.6)));
-					if (entity instanceof Player player) {
-						player.stopFallFlying();
-					}
-				}
+				PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new PlayPlayerAnimationMessage(entity.getId(), "invincible_craft:flight_sprint", true, false));
+			}
+			if (!player.isFallFlying())
+				player.startFallFlying();
+		} else {
+			resetAnimations(entity);
+			player.stopFallFlying();
+		}
+	}
+
+	private static void resetAnimations(Entity entity) {
+		if (entity instanceof Player) {
+			if (entity.level().isClientSide()) {
+				CompoundTag data = entity.getPersistentData();
+				data.remove("PlayerCurrentAnimation");
+				data.putBoolean("ResetPlayerAnimation", true);
+			} else {
+				PacketDistributor.sendToPlayersInDimension((ServerLevel) entity.level(), new PlayPlayerAnimationMessage(entity.getId(), "", false, false));
 			}
 		}
 	}
